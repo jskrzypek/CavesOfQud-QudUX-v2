@@ -28,21 +28,21 @@ namespace QudUX.HarmonyPatches
             {
                 if (PatchHelpers.InstructionsAreEqual(ilcodes[i], TargetInstruction))
                 {
-                    if (ilcodes[i - 2].opcode == OpCodes.Br)
+                    if (ilcodes[i - 3].opcode == OpCodes.Br)
                     {
-                        object jumpTarget = ilcodes[i - 2].operand;
+                        object jumpTarget = ilcodes[i - 3].operand;
                         List<CodeInstruction> optionSwitch = PatchHelpers.ILBlocks.IfOptionYesJumpTo(Options.Exploration.OptionStrings.DisableMagnets, jumpTarget);
                         
                         //clone and then null out this instruction, preserving the jump label here
-                        CodeInstruction shiftedInstruction = ilcodes[i - 1].Clone();
-                        ilcodes[i - 1].opcode = OpCodes.Nop;
-                        ilcodes[i - 1].operand = null;
+                        CodeInstruction shiftedInstruction = ilcodes[i - 2].Clone();
+                        ilcodes[i - 2].opcode = OpCodes.Nop;
+                        ilcodes[i - 2].operand = null;
 
                         //insert our option checking code next after the Nop/label
-                        ilcodes.InsertRange(i, optionSwitch);
+                        ilcodes.InsertRange(i - 1, optionSwitch);
 
                         //reinsert the cloned instruction we copied earlier (now without a label)
-                        ilcodes.Insert(i + optionSwitch.Count, shiftedInstruction);
+                        ilcodes.Insert(i - 1 + optionSwitch.Count, shiftedInstruction);
 
                         patchComplete = true;
                         break;
