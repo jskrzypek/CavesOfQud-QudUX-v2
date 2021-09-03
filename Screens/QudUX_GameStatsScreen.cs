@@ -174,7 +174,7 @@ namespace XRL.UI
 
         private void FillTables(out Table scoreTable, out Table levelsTable, out Table deathCauseTable, bool showAbandonned = true )
         {
-            EnhancedScoreboard scoreboard = EnhancedScoreboard.Load();
+            EnhancedScoreboard scoreboard = EnhancedScoreboard.Init();
 
             ScoreList = (from s in scoreboard.EnhancedScores
                         where (showAbandonned ||  !s.Abandoned)

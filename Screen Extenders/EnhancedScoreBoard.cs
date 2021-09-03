@@ -24,35 +24,31 @@ namespace QudUX.ScreenExtenders
         }
     }
 
-    public class EnhancedScoreboard : Scoreboard
+    public class EnhancedScoreboard : Scoreboard2
     {
         public List<EnhancedScoreEntry> EnhancedScores = new List<EnhancedScoreEntry>();
 
-        public static EnhancedScoreboard Load()
+        public static EnhancedScoreboard Init()
         {
             EnhancedScoreboard instance = new EnhancedScoreboard();
             try
             {
-                using (Stream stream = File.OpenRead(DataManager.SavePath("HighScores.dat")))
-                {
-                    var inst = (((IFormatter)new BinaryFormatter()).Deserialize(stream) as Scoreboard);
-                    stream.Close();
-                    instance.Scores = inst.Scores;
-                    instance.EnhancedScores = inst.Scores.Select(parent => new EnhancedScoreEntry(parent)).ToList();
-                }
+                Scoreboard2 highScoreData = Scoreboard2.Load();
+                instance.Scores = highScoreData.Scores;
+                instance.EnhancedScores = highScoreData.Scores.Select(parent => new EnhancedScoreEntry(parent)).ToList();
             }
             catch (Exception ex)
             {
-			Utilities.Logger.Log($"(Error) Failed to load HighScores.dat [{ex}]");
+			    Utilities.Logger.Log($"(Error) Failed to load HighScores data [{ex}]");
                 instance = new EnhancedScoreboard();
             }
             return instance;
         }
     }
 
-    public class EnhancedScoreEntry : ScoreEntry
+    public class EnhancedScoreEntry : ScoreEntry2
     {
-        public EnhancedScoreEntry(ScoreEntry scoreEntry) : base(scoreEntry.Score, scoreEntry.Description, scoreEntry.Details)
+        public EnhancedScoreEntry(ScoreEntry2 scoreEntry) : base(scoreEntry.Score, scoreEntry.Description, scoreEntry.Details, scoreEntry.Turns, scoreEntry.GameId, scoreEntry.GameMode)
         {
 
             if ((scoreEntry == null) || (string.IsNullOrEmpty(scoreEntry.Details)))
@@ -157,12 +153,12 @@ namespace QudUX.ScreenExtenders
                 string lvl = rgx.Replace(elts[3], "");
                 Level = int.Parse(lvl);
 
-                // get Turns
+                // get Turns (note: probably not needed anymore now that ScoreEntry2 has a Turns field? For now, I've renamed this to "TurnsOld")
                 line++;
                 line++;
                 elts = details[line].Split(' ');
                 string turns = rgx.Replace(elts[2], "");
-                Turns = int.Parse(turns);
+                TurnsOld = int.Parse(turns);
             }
             catch (Exception ex)
             {
@@ -180,19 +176,19 @@ namespace QudUX.ScreenExtenders
             return part;
         }
 
-        public EnhancedScoreEntry(int _Score, string _Description, string _Details) : this(new ScoreEntry(_Score, _Details, _Description))
-        {
-        }
+        //public EnhancedScoreEntry(int _Score, string _Description, string _Details) : this(new ScoreEntry(_Score, _Details, _Description))
+        //{
+        //}
 
         public string CharacterName { get; set; }
         public DateTime DeathDate { get; set; }
         public string KilledBy { get; set; }
         public int Level { get; set; }
-        public int Turns { get; set; }
+        public int TurnsOld { get; set; }
         public string Version { get; set; }
         public bool Abandoned{get ; set;} 
 
-        private void CopyFields(ScoreEntry scoreEntry)
+        private void CopyFields(ScoreEntry2 scoreEntry)
         {
             foreach (PropertyInfo prop in scoreEntry.GetType().GetProperties())
                 GetType().GetProperty(prop.Name).SetValue(this, prop.GetValue(scoreEntry, null), null);
