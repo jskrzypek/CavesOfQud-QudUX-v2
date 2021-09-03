@@ -23,14 +23,18 @@ namespace QudUX.HarmonyPatches
             List<MethodInfo> methodsFromCoversationUI = AccessTools.GetDeclaredMethods(typeof(XRL.UI.ConversationUI));
             foreach (MethodInfo method in methodsFromCoversationUI)
             {
-                if (method.Name == "HaveConversation")
+                //if (method.Name == "HaveConversation")
+                //{
+                //    ret = method;
+                //    Type[] argumentTypes = method.GetGenericArguments();
+                //    if (argumentTypes.Length > 0 && argumentTypes[0] == typeof(XRL.World.Conversation))
+                //    {
+                //        return method;
+                //    }
+                //}
+                if (method.Name == "_HaveConversation")
                 {
-                    ret = method;
-                    Type[] argumentTypes = method.GetGenericArguments();
-                    if (argumentTypes.Length > 0 && argumentTypes[0] == typeof(XRL.World.Conversation))
-                    {
-                        return method;
-                    }
+                    return method;
                 }
             }
             return ret;
@@ -59,7 +63,7 @@ namespace QudUX.HarmonyPatches
             var Sequence1 = new PatchTargetInstructionSet(new List<PatchTargetInstruction>
             {
                 new PatchTargetInstruction(OpCodes.Ldstr, " ]}}"),
-                new PatchTargetInstruction(OpCodes.Callvirt, ScreenBuffer_Write, 2),
+                new PatchTargetInstruction(OpCodes.Callvirt, ScreenBuffer_Write, 4),
                 new PatchTargetInstruction(OpCodes.Pop, 0)
             });
 

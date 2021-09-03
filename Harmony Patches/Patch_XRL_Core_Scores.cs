@@ -22,6 +22,8 @@ namespace QudUX.HarmonyPatches
                 new PatchTargetInstruction(OpCodes.Ldsfld, 0),
                 new PatchTargetInstruction(LoadHighScoreDeleteCommandString, 0),
                 new PatchTargetInstruction(OpCodes.Ldc_I4_1, 0),
+                new PatchTargetInstruction(OpCodes.Ldc_I4_0, 0),
+                new PatchTargetInstruction(OpCodes.Ldc_I4_0, 0),
                 new PatchTargetInstruction(OpCodes.Callvirt, ScreenBuffer_Write, 0),
                 new PatchTargetInstruction(OpCodes.Pop, 0),
             });
@@ -54,6 +56,8 @@ namespace QudUX.HarmonyPatches
                         yield return new CodeInstruction(OpCodes.Ldstr, "&Y[&WTab&y - Detailed Stats&Y]");
                         yield return Sequence1.MatchedInstructions[6].Clone();
                         yield return Sequence1.MatchedInstructions[7].Clone();
+                        yield return Sequence1.MatchedInstructions[8].Clone();
+                        yield return Sequence1.MatchedInstructions[9].Clone();
                         seq++;
                     }
                 }

@@ -6,11 +6,11 @@ using static QudUX.Concepts.Constants.MethodsAndFields;
 
 namespace QudUX.HarmonyPatches
 {
-    [HarmonyPatch(typeof(XRL.Core.XRLCore))]
-    class Patch_XRL_Core_XRLCore
+    [HarmonyPatch(typeof(XRL.CharacterBuilds.Qud.QudGameBootModule))]
+    class Patch_XRL_CharacterBuilds_Qud_QudGameBootModule
     {
         [HarmonyTranspiler]
-        [HarmonyPatch("NewGame")]
+        [HarmonyPatch("bootGame")]
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var Sequence = new PatchTargetInstructionSet(new List<PatchTargetInstruction>
@@ -42,7 +42,11 @@ namespace QudUX.HarmonyPatches
                     + "and certain other event-based QudUX features might not work as expected.");
             }
         }
+    }
 
+    [HarmonyPatch(typeof(XRL.Core.XRLCore))]
+    class Patch_XRL_Core_XRLCore
+    {
         [HarmonyPostfix]
         [HarmonyPatch("LoadGame")]
         static void Postfix()
