@@ -19,7 +19,7 @@ namespace QudUX.ScreenExtenders
         /// </remarks>
         public static void DrawConversationSpeakerTile(ScreenBuffer screenBuffer, GameObject speaker)
         {
-            if (!Options.UI.AddConversationTiles || XRLCore.Core.ConfusionLevel > 0)
+            if (!Options.UI.AddConversationTiles || XRLCore.Core.Game.Player.Body.GetConfusion() > 0)
             {
                 return;
             }

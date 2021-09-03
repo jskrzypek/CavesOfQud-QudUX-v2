@@ -305,7 +305,7 @@ namespace XRL.UI
             bool bDone = false;
             StartObject = 0;
             nSelected = 0;
-            currentMaxWeight = Rules.Stats.GetMaxWeight(GO);
+            currentMaxWeight = GO.GetMaxCarriedWeight();
             bool AltDisplayMode = false;
             Dictionary<char, int> ItemMap = new Dictionary<char, int>();
             bool bShowInventoryTiles = QudUX.Concepts.Options.UI.ViewInventoryTiles;
@@ -351,7 +351,7 @@ namespace XRL.UI
                     .Append("Total weight: {{Y|")
                     .Append(pInventory.GetWeight() + pBody.GetWeight())
                     .Append(" {{y|/}}  ")
-                    .Append(Rules.Stats.GetMaxWeight(pInventory.ParentObject))
+                    .Append(pInventory.ParentObject.GetMaxCarriedWeight())
                     .Append(" lbs.}}")
                 ;
                 Buffer.Goto(79 - ColorUtility.LengthExceptFormatting(WeightString), 23);

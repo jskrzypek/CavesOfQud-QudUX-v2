@@ -587,7 +587,7 @@ namespace XRL.UI.QudUX_DummyTradeNamespace
                 Inventory pInventory = XRL.Core.XRLCore.Core.Game.Player.Body.GetPart("Inventory") as Inventory;
                 Body pBody = XRL.Core.XRLCore.Core.Game.Player.Body.GetPart<Body>();
                 nTotalWeight = pInventory.GetWeight() + pBody.GetWeight();
-                nMaxWeight = Rules.Stats.GetMaxWeight(XRL.Core.XRLCore.Core.Game.Player.Body);
+                nMaxWeight = XRL.Core.XRLCore.Core.Game.Player.Body.GetMaxCarriedWeight();
             }
 
             if (Objects[0].Count <= 0 && costMultiple > 0)
