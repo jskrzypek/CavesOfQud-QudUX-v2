@@ -36,7 +36,7 @@ Previous Features (Since Removed)
 
 Install
 -------
-The mod can be installed directly from this repository by downloading the code and following [these mod installation instructions](https://cavesofqud.gamepedia.com/Modding:Installing_a_mod#Manual_Download). Check out the latest [releases](https://github.com/egocarib/CavesOfQud-QudUX-v2/releases).
+The mod can be installed directly from this repository by downloading the code and following [these mod installation instructions](https://wiki.cavesofqud.com/wiki/Modding:Installing_a_mod#Manual_Download). Check out the latest [releases](https://github.com/egocarib/CavesOfQud-QudUX-v2/releases).
 
 It is also available on the Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1804499742
 
