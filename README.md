@@ -21,18 +21,22 @@ Features
 - Do your cooking in brand new text console UI cooking screens [`video preview`](https://youtu.be/pYr_74r5_V4)
   - Brand new UI for *Choose ingredients to cook with*
   - Brand new UI for *Cook from a recipe*
-- Collapse sections in the text console UI trade screen [`PNG preview`](https://i.imgur.com/MPz3nHH.png)
 - See ability descriptions and willpower-adjusted cooldown details for **all** activated abilities on the abilities screen [`GIF preview`](https://i.imgur.com/qdwLXIU.gif)
 - Disable auto-pickup for specific items through item interaction menu, such as ape pelts or HE Missiles [`PNG preview`](https://i.imgur.com/eo9ZwF2.png)
 - Review game statistics in a revamped GameStats menu.
 - Get particle text indicators when you're blocked at a zone border or when you've paused before entering deep/dangerous liquids [`GIF preview`](https://i.imgur.com/7jHm9N7.gif)
-- ~~Enjoy a unique, dedicated sprite for arrows [`PNG preview`](https://i.imgur.com/9XGyjFZ.png)~~
-  - (Feature removed because an arrow sprite was added to the base game)
 - Optionally, prevent pulsed field magnets from ripping your items away. This option is off by default.
+
+Previous Features (Since Removed)
+---------------------------------
+- Enjoy a unique, dedicated sprite for arrows [`PNG preview`](https://i.imgur.com/9XGyjFZ.png)
+  - (Removed after an arrow sprite was added to the base game)
+- Collapse sections in the text console UI trade screen [`PNG preview`](https://i.imgur.com/MPz3nHH.png)
+  - (Proved unwieldy to maintain due to constant changes to base game's trade UI screen)
 
 Install
 -------
-The mod can be installed directly from this repository by downloading the code and following [these mod installation instructions](https://cavesofqud.gamepedia.com/Modding:Installing_a_mod#Manual_Download).
+The mod can be installed directly from this repository by downloading the code and following [these mod installation instructions](https://cavesofqud.gamepedia.com/Modding:Installing_a_mod#Manual_Download). Check out the latest [releases](https://github.com/egocarib/CavesOfQud-QudUX-v2/releases).
 
 It is also available on the Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1804499742
 
