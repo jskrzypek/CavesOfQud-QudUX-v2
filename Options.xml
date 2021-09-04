@@ -10,7 +10,6 @@
   <option ID="QudUX_OptionValPerLbInInventory" DisplayText=" In revamped inventory, press {{W|.}} or {{W|0}} to show value per pound" Category="QudUX" Type="Checkbox" Default="Yes"></option>
   <option ID="QudUX_OptionUseCookMenus" DisplayText="Use revamped cooking menus (requires restart)" Category="QudUX" Type="Checkbox" Default="Yes"></option>
   <option ID="QudUX_OptionUseBuildLibrary" DisplayText="Use revamped build library text UI (requires restart)" Category="QudUX" Type="Checkbox" Default="Yes"></option>
-  <option ID="QudUX_OptionCollapseInTradeMenu" DisplayText="Enable collapsible categories on the trade screen text UI" Category="QudUX" Type="Checkbox" Default="Yes"></option>
   <option ID="QudUX_OptionCustomSpriteMenu" DisplayText="Modify your sprite from character creation text UI (requires restart)" Category="QudUX" Type="Checkbox" Default="Yes"></option>
   <option ID="QudUX_OptionTileConversationUI" DisplayText="Show sprites in conversation screen text UI" Category="QudUX" Type="Checkbox" Default="Yes"></option>
   <option ID="QudUX_OptionAbilityDescriptions" DisplayText="Add descriptions and cooldown info to activated ability screen" Category="QudUX" Type="Checkbox" Default="Yes"></option>

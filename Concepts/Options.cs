@@ -21,7 +21,6 @@ namespace QudUX.Concepts
             public static bool UseSpriteMenu => GetOption("QudUX_OptionCustomSpriteMenu").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionCustomSpriteMenu"));
             public static bool ViewItemValues => GetOption("QudUX_OptionValPerLbInInventory").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionValPerLbInInventory"));
             public static bool ViewInventoryTiles => GetOption("QudUX_OptionShowInventoryTiles").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionShowInventoryTiles"));
-            public static bool CollapsibleTradeUI => GetOption("QudUX_OptionCollapseInTradeMenu").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionCollapseInTradeMenu"));
             public static bool AddConversationTiles => GetOption("QudUX_OptionTileConversationUI").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionTileConversationUI"));
             public static bool ShowAbilityDescriptions => GetOption("QudUX_OptionAbilityDescriptions").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionAbilityDescriptions"));
             public static bool EnableAutogetExclusions => GetOption("QudUX_OptionAutogetExclusions").EqualsNoCase("Yes") || string.IsNullOrEmpty(GetOption("QudUX_OptionAutogetExclusions"));
