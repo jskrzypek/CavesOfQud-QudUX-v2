@@ -259,7 +259,7 @@ namespace XRL.World.Parts
                     _debugSegmentCounter = 23;
                     startNode.Choices.Add(askRestockChoice);
                     _debugSegmentCounter = 24;
-                    startNode.SortEndChoicesToEnd();
+                    startNode.Choices.Sort();
                     _debugSegmentCounter = 25;
                 }
                 _debugSegmentCounter = 26;
