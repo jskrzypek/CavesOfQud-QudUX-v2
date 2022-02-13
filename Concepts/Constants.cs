@@ -181,7 +181,7 @@ namespace QudUX.Concepts
             }
             public static MethodInfo GameObject_get_the
             {
-                get { return typeof(GameObject).GetMethod("get_the"); }
+                get { return typeof(GameObject).GetMethod("t"); }
             }
             public static MethodInfo TextConsole_DrawBuffer
             {
@@ -195,23 +195,23 @@ namespace QudUX.Concepts
             {
                 get { return typeof(Popup).GetMethod("ShowConversation"); }
             }
-            public static MethodInfo CreateCharacter_BuildLibraryManagement
-            {
-                get { return typeof(CreateCharacter).GetMethod("BuildLibraryManagement"); }
-            }
-            public static MethodInfo QudUX_BuildLibraryScreen_Show
-            {
-                //get { return GetMethodInfo(() => QudUX_BuildLibraryScreen.Show()); }
-                get { return GetMethodInfo(() => QudUX_BuildLibraryScreen.PatchHandleBuildLibraryManagement()); }
-            }
-            public static MethodInfo CreateCharacterExtender_WriteCharCreateSpriteOptionText
-            {
-                get { return GetMethodInfo(() => CreateCharacterExtender.WriteCharCreateSpriteOptionText(default(ScreenBuffer))); }
-            }
-            public static MethodInfo CreateCharacterExtender_PickCharacterTile
-            {
-                get { return GetMethodInfo(() => CreateCharacterExtender.PickCharacterTile(default(CharacterTemplate))); }
-            }
+            //public static MethodInfo CreateCharacter_BuildLibraryManagement
+            //{
+            //    get { return typeof(CreateCharacter).GetMethod("BuildLibraryManagement"); }
+            //}
+            //public static MethodInfo QudUX_BuildLibraryScreen_Show
+            //{
+            //    //get { return GetMethodInfo(() => QudUX_BuildLibraryScreen.Show()); }
+            //    get { return GetMethodInfo(() => QudUX_BuildLibraryScreen.PatchHandleBuildLibraryManagement()); }
+            //}
+            //public static MethodInfo CreateCharacterExtender_WriteCharCreateSpriteOptionText
+            //{
+            //    get { return GetMethodInfo(() => CreateCharacterExtender.WriteCharCreateSpriteOptionText(default(ScreenBuffer))); }
+            //}
+            //public static MethodInfo CreateCharacterExtender_PickCharacterTile
+            //{
+            //    get { return GetMethodInfo(() => CreateCharacterExtender.PickCharacterTile(default(CharacterTemplate))); }
+            //}
             public static MethodInfo Events_EmbarkEvent
             {
                 get { return GetMethodInfo(() => QudUX.Concepts.Events.EmbarkEvent()); }
@@ -252,18 +252,18 @@ namespace QudUX.Concepts
             {
                 get { return typeof(ConversationUI).GetField("_TextConsole"); }
             }
-            public static FieldInfo CreateCharacter__Console
-            {
-                get { return DeclaredField(typeof(CreateCharacter), "_Console"); }
-            }
-            public static FieldInfo CreateCharacter_Template
-            {
-                get { return DeclaredField(typeof(CreateCharacter), "Template"); }
-            }
-            public static FieldInfo CharacterTemplate_PlayerBody
-            {
-                get { return DeclaredField(typeof(CharacterTemplate), "PlayerBody"); }
-            }
+            //public static FieldInfo CreateCharacter__Console
+            //{
+            //    get { return DeclaredField(typeof(CreateCharacter), "_Console"); }
+            //}
+            //public static FieldInfo CreateCharacter_Template
+            //{
+            //    get { return DeclaredField(typeof(CreateCharacter), "Template"); }
+            //}
+            //public static FieldInfo CharacterTemplate_PlayerBody
+            //{
+            //    get { return DeclaredField(typeof(CharacterTemplate), "PlayerBody"); }
+            //}
             public static FieldInfo Look_Buffer //class ConsoleLib.Console.ScreenBuffer XRL.UI.Look::Buffer
             {
                 get { return DeclaredField(typeof(Look), "Buffer"); }

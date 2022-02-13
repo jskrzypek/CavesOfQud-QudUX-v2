@@ -8,7 +8,7 @@ using XRL.World.Effects;
 
 namespace QudUX.ScreenExtenders
 {
-    class CreateCharacterExtender
+    public class CreateCharacterExtender
     {
         public static CharacterTileScreenExtender.TileMetadata TileInfo;
         public static GameObject TargetObject;
@@ -94,9 +94,9 @@ namespace QudUX.ScreenExtenders
             CustomTileWriteCoords = new Coords(buffer.X + 1, buffer.Y);
         }
 
-        public static void PickCharacterTile(CharacterTemplate playerTemplate)
-        {
-            new QudUX_CharacterTileScreen().Show(playerTemplate);
-        }
+        //public static void PickCharacterTile(CharacterTemplate playerTemplate)
+        //{
+        //    new QudUX_CharacterTileScreen().Show(playerTemplate);
+        //}
     }
 }

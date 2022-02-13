@@ -51,10 +51,10 @@ namespace QudUX.HarmonyPatches
             {
                 new PatchTargetInstruction(OpCodes.Callvirt, Cell_GetDangerousOpenLiquidVolume),
                 new PatchTargetInstruction(OpCodes.Ldfld, XRLCore_MoveConfirmDirection, 6),
-                new PatchTargetInstruction(OpCodes.Callvirt, GameObject_get_the, 62),
+                new PatchTargetInstruction(OpCodes.Ldstr, "Are you sure you want to move into ", 56),
                 new PatchTargetInstruction(OpCodes.Ldloc_S, 4),
-                new PatchTargetInstruction(OpCodes.Callvirt, GameObject_get_ShortDisplayName, 0),
-                new PatchTargetInstruction(OpCodes.Stfld, XRLCore_MoveConfirmDirection, 22)
+                new PatchTargetInstruction(OpCodes.Callvirt, GameObject_get_the, 14),
+                new PatchTargetInstruction(OpCodes.Stfld, XRLCore_MoveConfirmDirection, 21)
             });
 
             int seq = 1;

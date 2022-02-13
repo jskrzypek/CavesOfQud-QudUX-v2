@@ -12,7 +12,8 @@ namespace XRL.UI
     {
         private static TextConsole Console;
         private static ScreenBuffer Buffer;
-        private CharacterTemplate PlayerTemplate;
+        //private CharacterTemplate PlayerTemplate;
+        private GameObject PlayerTemplate;
         private static bool HPColorWarningShown;
 
         public void Init(TextConsole console, ScreenBuffer buffer)
@@ -21,11 +22,11 @@ namespace XRL.UI
             Buffer = buffer;
         }
 
-        public void Show(CharacterTemplate playerTemplate)
-        {
-            PlayerTemplate = playerTemplate;
-            Show(PlayerTemplate.PlayerBody);
-        }
+        //public void Show(CharacterTemplate playerTemplate)
+        //{
+        //    PlayerTemplate = playerTemplate;
+        //    Show(PlayerTemplate.PlayerBody);
+        //}
 
         public enum ScreenMode
         {
@@ -55,10 +56,14 @@ namespace XRL.UI
             };
             int tileCategoryIndex = 0;
             GameManager.Instance.PushGameView("QudUX:CharacterTile");
+            //if (PlayerTemplate == null)
+            //{
+            //    PlayerTemplate = new CharacterTemplate();
+            //    PlayerTemplate.PlayerBody = targetBody;
+            //}
             if (PlayerTemplate == null)
             {
-                PlayerTemplate = new CharacterTemplate();
-                PlayerTemplate.PlayerBody = targetBody;
+                PlayerTemplate = targetBody;
             }
             CharacterTileScreenExtender characterTiler = new CharacterTileScreenExtender(PlayerTemplate);
             CharacterTileScreenExtender filterTiler = null;

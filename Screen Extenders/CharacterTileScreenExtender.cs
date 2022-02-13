@@ -10,10 +10,11 @@ using ConsoleLib.Console;
 using QudUX.Utilities;
 using static QudUX.Utilities.Logger;
 using QudUX.Concepts;
+using Newtonsoft.Json;
 
 namespace QudUX.ScreenExtenders
 {
-    class CharacterTileScreenExtender
+    public class CharacterTileScreenExtender
     {
         public readonly GameObject TargetBody;
         public List<TileMetadata> Tiles;
@@ -31,11 +32,12 @@ namespace QudUX.ScreenExtenders
         public bool IsPhotosynthetic;
         public string CurrentQuery { get; set; }
 
-        public CharacterTileScreenExtender(CharacterTemplate playerTemplate)
+        public CharacterTileScreenExtender(GameObject playerBody /*CharacterTemplate playerTemplate*/)
         {
-            SetDefaultColors(playerTemplate.PlayerBody);
-            InitCoreTiles(playerTemplate);
-            TargetBody = playerTemplate.PlayerBody;
+            SetDefaultColors(/*playerTemplate.PlayerBody*/ playerBody);
+            //InitCoreTiles(playerTemplate);
+            InitCoreTiles();
+            TargetBody = /*playerTemplate.PlayerBody*/ playerBody;
         }
 
         public CharacterTileScreenExtender(GameObject targetBody, List<string> blueprintParents)
@@ -88,7 +90,7 @@ namespace QudUX.ScreenExtenders
             }
         }
 
-        public void InitCoreTiles(CharacterTemplate playerTemplate = null)
+        public void InitCoreTiles(/*CharacterTemplate playerTemplate = null*/)
         {
             CurrentQuery = null;
             List<SubtypeEntry> gameSubtypes = new List<SubtypeEntry>();
@@ -101,10 +103,10 @@ namespace QudUX.ScreenExtenders
             foreach (SubtypeEntry subtype in gameSubtypes)
             {
                 Tiles.Add(new TileMetadata(subtype.Tile, subtype.DetailColor, DefaultForegroundColor.ToString(), $"Subtype: {subtype.Name}", "Subtypes.xml"));
-                if (playerTemplate?.Subtype != null && playerTemplate.Subtype == subtype.Name)
-                {
-                    SelectedTileIndex = this.Tiles.Count - 1;
-                }
+                //if (playerTemplate?.Subtype != null && playerTemplate.Subtype == subtype.Name)
+                //{
+                //    SelectedTileIndex = this.Tiles.Count - 1;
+                //}
             }
         }
 
@@ -494,9 +496,11 @@ namespace QudUX.ScreenExtenders
             CreateCharacterExtender.ApplyTileInfoToObject(tileInfo, TargetBody);
         }
 
+        [Serializable]
         public class TileMetadata
         {
             public Coords DrawCoords = null;
+            [JsonIgnore]
             private readonly static List<string> ColorList = new List<string>()
             {
                 "K", "k", "Y", "y", "c", "C", "B", "b", "g", "G", "W", "w", "o", "O", "r", "R", "m", "M"
@@ -508,6 +512,7 @@ namespace QudUX.ScreenExtenders
             public bool IsFlipped;
             public readonly string _Tile;
             public readonly string _FlippedTile;
+            [JsonIgnore]
             public string Tile
             {
                 get
@@ -519,6 +524,7 @@ namespace QudUX.ScreenExtenders
                     return _FlippedTile;
                 }
             }
+            [JsonIgnore]
             public string DetailColor
             {
                 get
@@ -534,6 +540,7 @@ namespace QudUX.ScreenExtenders
                     return ColorList[DetailColorIndex];
                 }
             }
+            [JsonIgnore]
             public string ForegroundColor
             {
                 get
