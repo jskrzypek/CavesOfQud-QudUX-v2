@@ -40,7 +40,7 @@ namespace XRL.UI
             ScreenMode screenMode = ScreenMode.CoreTiles;
             List<string> tileCategories = new List<string>()
             {
-                "Animals", "Humanoids", "Robots", "Plants and Fungi", "Cherubim", "Statues", "Furniture", "Other (search)"
+                "Animals", "Humanoids", "Robots", "Plants and Fungi", "Cherubim", "Statues", "Furniture", "Character Presets", "Other (search)"
             };
             List<List<string>> tileCategoryBlueprintNodes = new List<List<string>>()
             {
@@ -51,6 +51,7 @@ namespace XRL.UI
                 null,
                 new List<string>() { "Statue", "Eater Hologram" },
                 new List<string>() { "Furniture", "FoldingChair", "Vessel", "Catchbasin" },
+                null,
                 null
                 //TODO: add "Pets" and "Sprites from Installed Mods" ?
             };
@@ -162,7 +163,7 @@ namespace XRL.UI
                             {
                                 tiler = new CharacterTileScreenExtender(targetBody, tileCategoryBlueprintNodes[tileCategoryIndex]);
                             }
-                            else
+                            else //"Character Presets" or "Cherubim"
                             {
                                 tiler = new CharacterTileScreenExtender(targetBody, category);
                             }

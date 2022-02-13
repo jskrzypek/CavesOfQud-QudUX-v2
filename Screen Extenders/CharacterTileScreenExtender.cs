@@ -11,6 +11,7 @@ using QudUX.Utilities;
 using static QudUX.Utilities.Logger;
 using QudUX.Concepts;
 using Newtonsoft.Json;
+using System.Xml;
 
 namespace QudUX.ScreenExtenders
 {
@@ -136,6 +137,10 @@ namespace QudUX.ScreenExtenders
                     .Where(bp => !bp.Tags.ContainsKey("BaseObject") && bp.Name.EndsWith(" Cherub"));
                 Tiles = LoadBlueprintTiles(matches).OrderBy(tm => tm.Tile).ThenBy(tm => tm.ForegroundColorIndex).ToList();
             }
+            else if (query == "character presets")
+            {
+                Tiles = LoadPresetTiles().OrderBy(tm => tm.Tile).ThenBy(tm => tm.ForegroundColorIndex).ToList();
+            }
             else if (query.Length > 0)
             {
                 var matches = GameObjectFactory.Factory.BlueprintList
@@ -260,6 +265,33 @@ namespace QudUX.ScreenExtenders
                             }
                         }
                     }
+                }
+            }
+        }
+
+        public IEnumerable<TileMetadata> LoadPresetTiles()
+        {
+            List<string> embarkModuleFiles = new List<string>();
+            embarkModuleFiles.Add(DataManager.FilePath("EmbarkModules.xml"));
+            ModManager.ForEachFile("EmbarkModules.xml", delegate (string path) { embarkModuleFiles.Add(path); });
+            foreach (string embarkModuleXmlPath in embarkModuleFiles)
+            {
+                if (File.Exists(embarkModuleXmlPath))
+                {
+                    XmlDocument embarkModulesXml = new XmlDocument();
+                    embarkModulesXml.Load(DataManager.FilePath("EmbarkModules.xml"));
+                    XmlNodeList pregenNodes = embarkModulesXml.GetElementsByTagName("pregen");
+                    foreach (XmlNode pregenNode in pregenNodes)
+                    {
+                        string tilePath = pregenNode.Attributes["Tile"]?.Value;
+                        string detailColor = pregenNode.Attributes["Detail"]?.Value;
+                        string foregroundColor = IsPhotosynthetic ? "g" : pregenNode.Attributes["Foreground"]?.Value;
+                        string displayName = pregenNode.Attributes["Name"]?.Value;
+                        string blueprintPath = $"Character Presets > {displayName}";
+                        yield return new TileMetadata(tilePath, detailColor, foregroundColor, displayName, blueprintPath);
+                    }
+                    pregenNodes = null;
+                    embarkModulesXml = null;
                 }
             }
         }
