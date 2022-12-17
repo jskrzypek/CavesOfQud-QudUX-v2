@@ -40,6 +40,12 @@ The mod can be installed directly from this repository by downloading the code a
 
 It is also available on the Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1804499742
 
+If you are manually installing a version of the mod, put the folder in `%AppData%\..\LocalLow\Freehold Games\CavesOfQud\Mods` on Windows or `~/Library/Application\ Support/Steam/steamapps/workshop/content/333640/1804499742` on OSX.
+
 Technical Notes
 ---------------
 QudUX 2.0 now relies primarily on Harmony injection to make its modifications, which is a far simpler (and more performant) framework than the Unity MonoBehavior polling that was previously used. Caves of Qud supports Harmony injection natively; Harmony is packaged with the game executable.
+
+Updates
+-------
+Includes patches from https://github.com/simonfruehauf/QUDUX-2.0.203.56 for v2.0.203.56

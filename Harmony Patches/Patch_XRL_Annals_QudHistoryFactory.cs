@@ -35,7 +35,7 @@ namespace QudUX.HarmonyPatches
         [HarmonyTargetMethod]
         static MethodBase TargetMethod()
         {
-            return QudHistoryFactoryType.GetMethod("NameRuinsSite", new Type[] { typeof(HistoryKit.History), typeof(bool).MakeByRefType() });
+            return QudHistoryFactoryType.GetMethod("NameRuinsSite", new Type[] { typeof(HistoryKit.History), typeof(bool).MakeByRefType(), typeof(string).MakeByRefType() });
         }
 
         /// <summary>

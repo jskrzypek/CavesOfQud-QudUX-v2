@@ -48,7 +48,7 @@ namespace QudUX.ScreenExtenders
 
     public class EnhancedScoreEntry : ScoreEntry2
     {
-        public EnhancedScoreEntry(ScoreEntry2 scoreEntry) : base(scoreEntry.Score, scoreEntry.Description, scoreEntry.Details, scoreEntry.Turns, scoreEntry.GameId, scoreEntry.GameMode)
+        public EnhancedScoreEntry(ScoreEntry2 scoreEntry) : base(scoreEntry.Score, scoreEntry.Details, scoreEntry.Turns, scoreEntry.GameId, scoreEntry.GameMode, scoreEntry.Level, scoreEntry.Name)
         {
 
             if ((scoreEntry == null) || (string.IsNullOrEmpty(scoreEntry.Details)))
@@ -63,7 +63,7 @@ namespace QudUX.ScreenExtenders
             int posGsf = details[line].IndexOf("Game summary for");
             if (posGsf > 0)
             {
-                Version = "0";
+                Version = 0;
             }
 
             try
@@ -183,10 +183,10 @@ namespace QudUX.ScreenExtenders
         public string CharacterName { get; set; }
         public DateTime DeathDate { get; set; }
         public string KilledBy { get; set; }
-        public int Level { get; set; }
+        //public int Level { get; set; }
         public int TurnsOld { get; set; }
-        public string Version { get; set; }
-        public bool Abandoned{get ; set;} 
+        //public string Version { get; set; }
+        public bool Abandoned{ get ; set; } 
 
         private void CopyFields(ScoreEntry2 scoreEntry)
         {

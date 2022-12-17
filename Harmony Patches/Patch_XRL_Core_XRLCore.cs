@@ -44,7 +44,8 @@ namespace QudUX.HarmonyPatches
         }
     }
 
-    [HarmonyPatch(typeof(XRL.Core.XRLCore))]
+    //[HarmonyPatch(typeof(XRL.Core.XRLCore))]
+    [HarmonyPatch(typeof(XRL.XRLGame))]
     class Patch_XRL_Core_XRLCore
     {
         [HarmonyPostfix]
