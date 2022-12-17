@@ -1,4 +1,4 @@
-﻿namespace QudUX.Utilities
+namespace QudUX.Utilities
 {
     public class Coords
     {

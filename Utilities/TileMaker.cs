@@ -1,4 +1,4 @@
-﻿using XRL.Core;
+using XRL.Core;
 using XRL.World;
 using XRL.World.Parts;
 using ConsoleLib.Console;

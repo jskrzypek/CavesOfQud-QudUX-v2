@@ -1,4 +1,4 @@
-﻿using XRL.UI;
+using XRL.UI;
 using XRL.Wish;
 using QudUX.Utilities;
 using System.Text.RegularExpressions;

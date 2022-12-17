@@ -1,4 +1,4 @@
-﻿using Kobold;
+using Kobold;
 using HarmonyLib;
 using QudUX.Concepts;
 using QudUX.Utilities;

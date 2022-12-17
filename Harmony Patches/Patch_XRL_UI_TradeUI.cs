@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using XRL.UI;
 using XRL.World;
 using XRL.World.Parts;

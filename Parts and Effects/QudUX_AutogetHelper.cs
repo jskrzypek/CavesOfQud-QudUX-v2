@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using XRL.Language;
 using XRL.UI;
 using QudUX_Constants = QudUX.Concepts.Constants;

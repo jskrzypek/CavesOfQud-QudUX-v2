@@ -1,4 +1,4 @@
-﻿using static XRL.UI.Options;
+using static XRL.UI.Options;
 
 namespace QudUX.Concepts
 {

@@ -1,4 +1,4 @@
-﻿using ConsoleLib.Console;
+using ConsoleLib.Console;
 using XRL.Core;
 using XRL.World;
 using QudUX.Utilities;

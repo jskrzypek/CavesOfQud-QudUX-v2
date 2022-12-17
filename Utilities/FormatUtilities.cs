@@ -1,4 +1,4 @@
-﻿using ConsoleLib.Console;
+using ConsoleLib.Console;
 using System.Security.Cryptography;
 
 namespace QudUX.Utilities

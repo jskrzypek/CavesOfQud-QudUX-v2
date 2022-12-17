@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using XRL.World;
 
 namespace QudUX.HarmonyPatches

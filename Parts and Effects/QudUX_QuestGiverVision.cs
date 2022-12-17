@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using XRL.Core;
 using XRL.World.Parts;
 
