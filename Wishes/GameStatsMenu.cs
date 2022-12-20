@@ -1,4 +1,4 @@
-using XRL.UI;
+﻿using XRL.UI;
 using XRL.Core;
 using XRL.Wish;
 using System.Text.RegularExpressions;

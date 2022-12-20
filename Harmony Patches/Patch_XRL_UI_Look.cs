@@ -1,4 +1,4 @@
-using System.Reflection.Emit;
+﻿using System.Reflection.Emit;
 using System.Collections.Generic;
 using HarmonyLib;
 using static QudUX.HarmonyPatches.PatchHelpers;

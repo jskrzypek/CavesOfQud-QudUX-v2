@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using QudUX.Utilities;
 using Qud.API;
 using XRL.Core;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <options>
 
   <option ID="QudUX_OptionTrackLocations" DisplayText="Track visited locations in journal" Category="QudUX" Type="Checkbox" Default="Yes"></option>

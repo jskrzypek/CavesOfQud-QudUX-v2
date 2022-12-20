@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using static QudUX.Utilities.Logger;
 
 namespace QudUX.HarmonyPatches

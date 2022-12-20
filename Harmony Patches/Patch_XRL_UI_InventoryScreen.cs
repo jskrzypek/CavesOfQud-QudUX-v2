@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using XRL.Core;
 using GameOptions = XRL.UI.Options;
 using QudUXOptions = QudUX.Concepts.Options;

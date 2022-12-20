@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <abilityEntries>
   <category Name="Cybernetics">
     <abilityEntry Name="Emergency Recomposite" Class="Cybernetics" Command="" BaseCooldown="100"></abilityEntry>

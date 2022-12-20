@@ -1,4 +1,4 @@
-# QudUX
+﻿# QudUX
 
 QudUX 2.0 is the successor to the [original QudUX](https://github.com/egocarib/CavesOfQud-QudUX-v1) mod for Caves of Qud. It has been completely re-written from the ground up. 
 
