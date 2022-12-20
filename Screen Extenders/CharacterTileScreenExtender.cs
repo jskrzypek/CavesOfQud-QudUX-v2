@@ -180,7 +180,7 @@ namespace QudUX.ScreenExtenders
             GamePartBlueprint renderPart = blueprint.GetPart("Render");
             if (renderPart != null)
             {
-                string displayName = renderPart.Parameters.ContainsKey("DisplayName") ? renderPart.Parameters["DisplayName"] : null;
+                string displayName = renderPart.HasParameter("DisplayName") ? renderPart.GetParameterString("DisplayName") : null;
                 if (!string.IsNullOrEmpty(displayName))
                 {
                     if (ColorUtility.StripFormatting(displayName).ToLower().Contains(queryLowercase))
@@ -202,9 +202,9 @@ namespace QudUX.ScreenExtenders
                 {
                     continue;
                 }
-                string detailColor = renderPart.Parameters.ContainsKey("DetailColor") ? renderPart.Parameters["DetailColor"] : null;
-                string foregroundColor = renderPart.Parameters.ContainsKey("ColorString") ? renderPart.Parameters["ColorString"] : "&y";
-                string tileColor = renderPart.Parameters.ContainsKey("TileColor") ? renderPart.Parameters["TileColor"] : null;
+                string detailColor = renderPart.HasParameter("DetailColor") ? renderPart.GetParameterString("DetailColor") : null;
+                string foregroundColor = renderPart.HasParameter("ColorString") ? renderPart.GetParameterString("ColorString") : "&y";
+                string tileColor = renderPart.HasParameter("TileColor") ? renderPart.GetParameterString("TileColor") : null;
                 if (!string.IsNullOrEmpty(tileColor))
                 {
                     foregroundColor = tileColor; //Some things use TileColor attribute; it has the same structure as ColorString
@@ -236,14 +236,14 @@ namespace QudUX.ScreenExtenders
                 GamePartBlueprint randomTilePart = blueprint.GetPart("RandomTile");
                 if (randomTilePart == null)
                 {
-                    string tilePath = renderPart.Parameters.ContainsKey("Tile") ? renderPart.Parameters["Tile"] : null;
+                    string tilePath = renderPart.HasParameter("Tile") ? renderPart.GetParameterString("Tile") : null;
                     tilePath = tilePath != null ? tilePath.ToLower() : null;
                     if (!string.IsNullOrEmpty(tilePath))
                     {
                         if (!foundTiles.Contains($"{tilePath}{detailColor}{foregroundColor}"))
                         {
                             foundTiles.Add($"{tilePath}{detailColor}{foregroundColor}");
-                            string displayName = renderPart.Parameters.ContainsKey("DisplayName") ? renderPart.Parameters["DisplayName"] : "";
+                            string displayName = renderPart.HasParameter("DisplayName") ? renderPart.GetParameterString("DisplayName") : "";
                             string blueprintPath = BlueprintPath(blueprint);
                             yield return new TileMetadata(tilePath, detailColor, foregroundColor, displayName, blueprintPath);
                         }
@@ -251,10 +251,10 @@ namespace QudUX.ScreenExtenders
                 }
                 else //ignore Render Tile if this has RandomTile part (as the game does)
                 {
-                    string tileList = randomTilePart.Parameters.ContainsKey("Tiles") ? randomTilePart.Parameters["Tiles"] : null;
+                    string tileList = randomTilePart.HasParameter("Tiles") ? randomTilePart.GetParameterString("Tiles") : null;
                     if (!string.IsNullOrEmpty(tileList))
                     {
-                        string displayName = renderPart.Parameters.ContainsKey("DisplayName") ? renderPart.Parameters["DisplayName"] : "";
+                        string displayName = renderPart.HasParameter("DisplayName") ? renderPart.GetParameterString("DisplayName") : "";
                         string blueprintPath = BlueprintPath(blueprint);
                         foreach (string tile in tileList.ToLower().Split(','))
                         {
